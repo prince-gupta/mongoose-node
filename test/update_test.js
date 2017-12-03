@@ -6,9 +6,13 @@ describe('Updating records', () => {
     let server;
 
     beforeEach((done) => {
-        server = new Server({ name: 'Server 1' });
+        server = new Server({ 
+            name: 'Server 1' ,
+            ip: '127.0.0.1',
+            running: true
+        });
         server.save()
-            .then(() => done());
+            .then(() => done()); 
     });
 
     function assertName(operation, done) {
