@@ -1,0 +1,16 @@
+{
+  "name": "mongoose-node",
+  "version": "1.0.0",
+  "description": "This Project is to showcase POC on Mongoose + Node.",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon --exec 'mocha -R min'"
+  },
+  "author": "arco",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^4.0.1",
+    "mongoose": "^4.13.5",
+    "nodemon": "^1.12.1"
+  }
+}
