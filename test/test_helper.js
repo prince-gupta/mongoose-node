@@ -8,16 +8,22 @@ before((done) => {
     //Asking mongoose to connect to mongoDB server which is running locally.
     mongoose.connect('mongodb://localhost/server_db', { useMongoClient: true });
 
+    console.log("Trying to connect to DB . . . Please wait")
+
     mongoose.connection
 
         //'once' is a event handler : it means watch for mongoose to emit event called 'open' and once it emits go forward and 
         // call function - in this case it is done(). done() is mocha function which emits a events to mocha to proceed.
-        .once('open', () => { done(); })
+        .once('open', () => { 
+            console.log('Connection with DB done ! ');
+            console.log('Executing Test Cases .')
+            done();
+        })
 
         //'error' is a event handler : it means watch for mongoose to emit event called 'error' and once it emits go forward and 
         // call function - in this case it is console.warn();
         .on('error', (error) => {
-            console.warn('Warning', error);
+            console.warn('Warning', error); 
         });
 });
 
@@ -28,5 +34,5 @@ beforeEach((done) => {
     mongoose.connection.collections.servers.drop(() => {
         // Ready to run next test !
         done();
-    });
+    }); 
 });
